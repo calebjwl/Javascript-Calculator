@@ -10,29 +10,33 @@
       <div class="container">
         <div class="calculator">
           <div class="display">
-            <p class="result">00</p>
+            <input id="result" class="result"></input>
           </div>
           <ul class="grid">
-            <button class="grid__item">C</button>
+            <button class="" onclick="clearField()">Clear</button>
             <button class="grid__item">()</button>
             <button class="grid__item">%</button>
             <button class="grid__item">/</button>
+
             <button class="grid__item">7</button>
             <button class="grid__item">8</button>
             <button class="grid__item">9</button>
             <button class="grid__item">*</button>
+
             <button class="grid__item">4</button>
             <button class="grid__item">5</button>
             <button class="grid__item">6</button>
             <button class="grid__item">-</button>
+
             <button class="grid__item">1</button>
             <button class="grid__item">2</button>
             <button class="grid__item">3</button>
             <button class="grid__item">+</button>
+
             <button class="grid__item">+/-</button>
             <button class="grid__item">0</button>
             <button class="grid__item">.</button>
-            <button class="grid__item">=</button>
+            <button class="" onclick="submit()">=</button>
           </ul>
         </div>
       </div>
@@ -41,6 +45,31 @@
   </body>
 
   <script type="text/javascript">
+    var field = document.getElementById('result');
+    var wasJustSubmitted = false;
+
+    var numbers = document.getElementsByClassName('grid__item');
+    for (var i = 0; i < numbers.length; i++) {
+      numbers[i].setAttribute('onclick', 'post(this)')
+    }
+
+    function submit() {
+      var input = field.value;
+      result.value = eval(input);
+      var wasJustSubmitted = true;
+    };
+
+    function clearField() {
+      field.value = '';
+    };
+
+    function post(number) {
+      if(wasJustSubmitted === "true") {
+        clearField().then(field.value += number.innerHTML);
+      } else {
+        field.value += number.innerHTML;
+      }
+    };
 
   </script>
 </html>
