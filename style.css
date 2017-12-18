@@ -1,0 +1,39 @@
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.section {
+
+}
+
+.container {
+
+}
+
+.calculator {
+  background: #939393;
+  width: 20rem;
+  padding: 1rem;
+}
+
+.display {
+  background: #d7d7d7;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.result {
+  margin: 0;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid__item {
+  width: calc(100% / 4);
+  height: 5rem;
+}
